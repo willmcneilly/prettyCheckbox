@@ -48,6 +48,11 @@
                         check.hasClass('checked') ? check.removeClass('checked') : check.addClass('checked');
                         check.hasClass('checked') ? check.append("<div class=\"check\"></div>") : $('.check', check).remove();
                         current.attr('checked') === 'checked' ? current.removeAttr('checked') : current.attr('checked', 'checked');
+
+                        // callback carried out, the current input and PrettyCheckbox instance is passed back.
+                        if( settings.callback != undefined ){
+                            settings.callback({'currentInput': current, 'currentPrettyCheckbox': check});
+                        }
                     })
                     .next('label')
                     .click( function(){ $(this).prev().click(); })
