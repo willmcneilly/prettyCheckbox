@@ -50,7 +50,7 @@
                         current.attr('checked') === 'checked' ? current.removeAttr('checked') : current.attr('checked', 'checked');
 
                         // callback carried out, the current input and PrettyCheckbox instance is passed back.
-                        if( settings.callback != undefined ){
+                        if( typeof settings.callback == 'function' ){
                             settings.callback({'currentInput': current, 'currentPrettyCheckbox': check});
                         }
                     })
